@@ -31,12 +31,12 @@
 - Create: `docker-compose.yml`, `.env.example`, `.gitignore`
 - Modify: `README.md`
 
-- [ ] Definir Node.js LTS e pnpm como gerenciador único; adicionar scripts `dev`, `build`, `test`, `lint` e `format` no workspace.
-- [ ] Criar os dois aplicativos sem regra de negócio e verificar que API e frontend iniciam separadamente.
-- [ ] Adicionar PostgreSQL no `docker-compose.yml` com volume nomeado, healthcheck e variáveis lidas do ambiente.
-- [ ] Documentar instalação, cópia de `.env.example`, subida do banco e comandos de desenvolvimento.
-- [ ] Rodar `pnpm install`, `pnpm build` e `pnpm test` e registrar o resultado no commit.
-- [ ] Commitar como `chore: bootstrap monorepo and local infrastructure`.
+- [x] Definir Node.js LTS e pnpm como gerenciador único; adicionar scripts `dev`, `build`, `test`, `lint` e `format` no workspace.
+- [x] Criar os dois aplicativos sem regra de negócio e verificar que API e frontend iniciam separadamente.
+- [x] Adicionar PostgreSQL no `docker-compose.yml` com volume nomeado, healthcheck e variáveis lidas do ambiente.
+- [x] Documentar instalação, cópia de `.env.example`, subida do banco e comandos de desenvolvimento.
+- [x] Rodar `pnpm install`, `pnpm build` e `pnpm test` e registrar o resultado no commit.
+- [x] Commitar como `chore: bootstrap monorepo and local infrastructure`.
 
 ### Task 2: Contrato e backend
 
