@@ -6,7 +6,7 @@
 
 **Architecture:** O projeto será um monorepo simples com `apps/api` e `apps/web`. A API concentra regras de negócio, validação e persistência; a interface web consome apenas os contratos HTTP publicados pela API. O banco roda localmente por Docker Compose para que o avaliador consiga iniciar o projeto com poucos comandos.
 
-**Tech Stack:** TypeScript, NestJS, Prisma, PostgreSQL, Jest/Supertest, React com Vite, React Query, React Hook Form, Zod, CSS Modules ou Tailwind CSS, Docker Compose e OpenAPI/Swagger.
+**Tech Stack:** TypeScript, NestJS, Mongoose, MongoDB, Jest/Supertest, React com Vite, React Query, React Hook Form, Zod, CSS Modules ou Tailwind CSS, Docker Compose e OpenAPI/Swagger.
 
 ## Global Constraints
 
@@ -33,7 +33,7 @@
 
 - [x] Definir Node.js LTS e pnpm como gerenciador único; adicionar scripts `dev`, `build`, `test`, `lint` e `format` no workspace.
 - [x] Criar os dois aplicativos sem regra de negócio e verificar que API e frontend iniciam separadamente.
-- [x] Adicionar PostgreSQL no `docker-compose.yml` com volume nomeado, healthcheck e variáveis lidas do ambiente.
+- [x] Adicionar MongoDB no `docker-compose.yml` com volume nomeado, healthcheck e variáveis lidas do ambiente.
 - [x] Documentar instalação, cópia de `.env.example`, subida do banco e comandos de desenvolvimento.
 - [x] Rodar `pnpm install`, `pnpm build` e `pnpm test` e registrar o resultado no commit.
 - [x] Commitar como `chore: bootstrap monorepo and local infrastructure`.
@@ -50,18 +50,19 @@
 - Create: `apps/api/src/occurrences/occurrences.service.ts`
 - Create: `apps/api/src/occurrences/domain/triage.service.ts`
 - Create: `apps/api/src/occurrences/dto/*`
-- Create: `apps/api/prisma/schema.prisma`, `apps/api/prisma/seed.ts`
+- Create: `apps/api/src/database/database.module.ts`, `apps/api/src/occurrences/schemas/occurrence.schema.ts`
+- Create: `apps/api/src/occurrences/seed.ts`
 - Create: `apps/api/test/occurrences.e2e-spec.ts`, `apps/api/test/triage.service.spec.ts`
 
-- [ ] Transcrever do PDF, no README da API, os três endpoints exatos e exemplos de request/response antes de escrever o controller.
-- [ ] Modelar a entidade de ocorrência no Prisma somente com os campos exigidos pelo enunciado; incluir timestamps e índice para os filtros realmente pedidos.
-- [ ] Escrever primeiro os testes unitários da regra de triagem para casos normais, limite e entrada inválida; confirmar falha inicial.
-- [ ] Implementar `TriageService` como função determinística, depois conectar o serviço de aplicação ao Prisma.
-- [ ] Implementar DTOs com `class-validator`, tratamento de `404` e respostas de erro consistentes.
-- [ ] Implementar os três endpoints do PDF, habilitar CORS configurável e publicar Swagger em `/docs`.
-- [ ] Criar seed pequeno e seguro para demonstração local; não usar dados pessoais reais.
-- [ ] Rodar `pnpm --filter api test`, `pnpm --filter api test:e2e` e `pnpm --filter api build`.
-- [ ] Commitar como `feat: implement occurrence triage api`.
+- [x] Transcrever do PDF, no README da API, os três endpoints exatos: `POST /occurrences`, `GET /occurrences?status=&siteId=` e `PATCH /occurrences/:id/status`, com exemplos de request/response.
+- [x] Modelar a entidade de ocorrência no Mongoose somente com os campos do enunciado (`siteId`, `droneId`, `type`, `severity`, `detectedAt`, `status`, `count`, `note`) e índices para agrupamento e filtros.
+- [x] Escrever primeiro os testes unitários da regra de triagem para casos normais, limite e entrada inválida; confirmar falha inicial.
+- [x] Implementar `TriageService` como função determinística para peso, prioridade, agrupamento e transições; depois conectar o serviço de aplicação ao MongoDB.
+- [x] Implementar DTOs com `class-validator`, tratamento de `404` e respostas de erro consistentes.
+- [x] Implementar os três endpoints do PDF, habilitar CORS configurável e publicar Swagger em `/docs`.
+- [x] Criar seed pequeno e seguro para demonstração local; não usar dados pessoais reais.
+- [x] Rodar `pnpm --filter api test`, `pnpm --filter api test:e2e` e `pnpm --filter api build`.
+- [x] Commitar como `feat: implement occurrence triage api`.
 
 ### Task 3: Frontend
 
@@ -88,7 +89,7 @@
 
 **Branch:** `main` após revisão dos três commits
 
-- [ ] Subir PostgreSQL, executar migração/seed, iniciar API e frontend e exercitar os três endpoints pelo Swagger e pela interface.
+- [ ] Subir MongoDB, executar seed, iniciar API e frontend e exercitar os três endpoints pelo Swagger e pela interface.
 - [ ] Atualizar README com arquitetura, decisões, comandos, variáveis, exemplos e limitações conhecidas.
 - [ ] Executar `pnpm lint`, `pnpm test`, `pnpm build` e uma verificação manual dos casos descritos no PDF.
 - [ ] Revisar `git log --oneline --graph` para garantir histórico curto e compreensível; abrir PRs ou fazer merge na ordem setup → backend → frontend.

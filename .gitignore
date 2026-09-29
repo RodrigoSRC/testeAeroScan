@@ -5,3 +5,4 @@ coverage/
 .env.local
 .pnpm-store/
 *.log
+.tmp-pdf/
