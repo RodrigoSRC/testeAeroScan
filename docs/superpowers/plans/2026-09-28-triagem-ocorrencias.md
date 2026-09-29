@@ -77,13 +77,14 @@
 - Create: `apps/web/src/styles/*`
 - Create: `apps/web/src/types/*`
 
-- [ ] Definir tipos TypeScript a partir do contrato OpenAPI da API, sem duplicar regras de triagem no cliente.
-- [ ] Criar a tela principal com listagem, estado de carregamento, estado vazio, erro e indicação visual da prioridade/status.
-- [ ] Criar o formulário exigido pelo PDF com React Hook Form e validação Zod alinhada ao backend.
-- [ ] Encapsular chamadas em `src/api/occurrences.ts` e usar React Query para cache, refetch e invalidação após mutações.
-- [ ] Adicionar feedback de sucesso/erro e acessibilidade básica: labels, foco, navegação por teclado e contraste legível.
-- [ ] Rodar `pnpm --filter web build` e validar manualmente os fluxos contra a API local.
-- [ ] Commitar como `feat: add occurrence triage web interface`.
+- [x] Definir tipos TypeScript a partir do contrato OpenAPI da API, sem duplicar regras de triagem no cliente.
+- [x] Criar a tela principal com listagem, estado de carregamento, estado vazio, erro e indicação visual da prioridade/status.
+- [x] Criar o formulário exigido pelo PDF com React Hook Form e validação Zod alinhada ao backend.
+- [x] Encapsular chamadas em `src/api/occurrences.ts` e usar React Query para cache, refetch e invalidação após mutações.
+- [x] Adicionar feedback de sucesso/erro e acessibilidade básica: labels, foco, navegação por teclado e contraste legível.
+- [x] Rodar `pnpm --filter web build` e os testes automatizados da interface.
+- [ ] Validar manualmente os fluxos contra a API local.
+- [x] Commitar como `feat: add occurrence triage web interface`.
 
 ### Task 4: Integração e entrega
 
