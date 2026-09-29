@@ -19,6 +19,7 @@ describe('TriageService', () => {
     expect(() => service.validateTransition('open', 'acknowledged')).not.toThrow();
     expect(() => service.validateTransition('acknowledged', 'resolved', 'Resolved at gate')).not.toThrow();
     expect(() => service.validateTransition('open', 'resolved')).toThrow(ConflictException);
+    expect(() => service.validateTransition('open', 'open')).toThrow(ConflictException);
     expect(() => service.validateTransition('acknowledged', 'resolved')).toThrow(ConflictException);
   });
 });
