@@ -90,10 +90,10 @@
 
 **Branch:** `main` após revisão dos três commits
 
-- [ ] Subir MongoDB, executar seed, iniciar API e frontend e exercitar os três endpoints pelo Swagger e pela interface.
-- [ ] Atualizar README com arquitetura, decisões, comandos, variáveis, exemplos e limitações conhecidas.
-- [ ] Executar `pnpm lint`, `pnpm test`, `pnpm build` e uma verificação manual dos casos descritos no PDF.
-- [ ] Revisar `git log --oneline --graph` para garantir histórico curto e compreensível; abrir PRs ou fazer merge na ordem setup → backend → frontend.
+- [x] Subir MongoDB, executar seed, iniciar API e frontend e exercitar os três endpoints pelo Swagger e pela interface.
+- [x] Atualizar README com arquitetura, decisões, comandos, variáveis, exemplos e limitações conhecidas.
+- [x] Executar `pnpm lint`, `pnpm test`, `pnpm build` e uma verificação manual dos casos descritos no PDF.
+- [x] Revisar `git log --oneline --graph` para garantir histórico curto e compreensível; abrir PRs ou fazer merge na ordem setup → backend → frontend.
 
 ## Branch and commit sequence
 
