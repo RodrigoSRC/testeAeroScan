@@ -6,13 +6,13 @@ export type OccurrenceDocument = HydratedDocument<Occurrence>;
 
 @Schema({ timestamps: true, versionKey: false })
 export class Occurrence {
-  @Prop({ required: true, trim: true })
+  @Prop({ required: true, trim: true, type: String })
   siteId!: string;
 
-  @Prop({ required: true, trim: true })
+  @Prop({ required: true, trim: true, type: String })
   droneId!: string;
 
-  @Prop({ required: true, enum: OCCURRENCE_TYPES })
+  @Prop({ required: true, enum: OCCURRENCE_TYPES, type: String })
   type!: OccurrenceType;
 
   @Prop({ required: true, min: 1, max: 5, type: Number })
@@ -21,13 +21,13 @@ export class Occurrence {
   @Prop({ required: true, type: Date })
   detectedAt!: Date;
 
-  @Prop({ required: true, enum: OCCURRENCE_STATUSES, default: 'open' })
+  @Prop({ required: true, enum: OCCURRENCE_STATUSES, default: 'open', type: String })
   status!: OccurrenceStatus;
 
   @Prop({ required: true, min: 1, default: 1, type: Number })
   count!: number;
 
-  @Prop({ trim: true })
+  @Prop({ trim: true, type: String })
   note?: string;
 }
 
